@@ -22,6 +22,7 @@ public class StampaRicetta {
 	
 	private static Font fTitolo1 = new Font(Font.FontFamily.TIMES_ROMAN, 20,Font.BOLD);
 	private static Font fTitolo2 = new Font(Font.FontFamily.TIMES_ROMAN, 18,Font.BOLD);
+	private static Font fBold = new Font(Font.FontFamily.TIMES_ROMAN, 14,Font.BOLD);
 	private static Font fIntestazione = new Font(Font.FontFamily.TIMES_ROMAN, 12,Font.ITALIC);
 	
 	private Ricetta r;
@@ -42,7 +43,7 @@ public class StampaRicetta {
 			doc.open();
 			doc.setPageSize(com.itextpdf.text.PageSize.A4);
 			Paragraph p;
-			p = new Paragraph("JBoile v0.2 - Daniele Boncompagni",fIntestazione);
+			p = new Paragraph("JBoiles v0.2 - Daniele Boncompagni",fIntestazione);
 			p.setAlignment(Paragraph.ALIGN_RIGHT);
 			doc.add(p);
 			p = new Paragraph("Ricetta : "+ r.nome,fTitolo1);
@@ -74,9 +75,9 @@ public class StampaRicetta {
 			
 			p = new Paragraph(" ");
 			doc.add(p);
-			p = new Paragraph("Peso senza uova : " + r.pesoSenzaUova);
+			p = new Paragraph("Peso senza uova : " + r.pesoSenzaUova +" g");
 			doc.add(p);
-			p = new Paragraph("Peso totale : " + r.pesoTot);
+			p = new Paragraph("Peso totale : " + r.pesoTot +" g");
 			doc.add(p);
 			p = new Paragraph("Note : " + r.note);
 			doc.add(p);
@@ -113,9 +114,9 @@ public class StampaRicetta {
 			
 			p = new Paragraph(" ");
 			doc.add(p);
-			p = new Paragraph("Indice di digeribilità : " + r.digeribilita,fTitolo2);
+			p = new Paragraph("Indice di digeribilità : " + r.digeribilita,fBold);
 			doc.add(p);
-			p = new Paragraph("Indice legante : " + r.indiceLegante,fTitolo2);
+			p = new Paragraph("Indice legante : " + r.indiceLegante,fBold);
 			doc.add(p);
 			
 			doc.close();

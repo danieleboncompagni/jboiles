@@ -158,6 +158,26 @@ public class MainWindow extends JFrame {
 				nomeRicetta=ric.nome;
 				aggiornaDati();
 				txtB.setText(ric.note);
+				/*ricalcolo i valori nutrizionali*/
+				if(nomeRicetta==""){
+					JOptionPane.showMessageDialog(null, "Non è presente alcun ingrediente");
+				}else{
+					ric.calcola();
+					DecimalFormat decimal = new DecimalFormat("##0.##"); //, symbols)
+					lblCarboidrati.setText("Carboidrati : "+decimal.format(ric.carboidrati));
+					lblCarboidratiX100.setText("Carboidrati % : "+decimal.format(ric.carboidratiX100));
+					lblPesoSenaUova.setText("Peso senza uova : " + decimal.format(ric.pesoSenzaUova));
+					lblPesoTot.setText("Peso totale : "+decimal.format(ric.pesoTot));
+					lblCarboidrati.setText("Carobidrati : "+decimal.format(ric.carboidrati));
+					lblCarboidratiX100.setText("Carboidrati % : "+decimal.format(ric.carboidratiX100));
+					lblGrassi.setText("Grassi : "+decimal.format(ric.grassi));
+					lblProteine.setText("Proteine : "+decimal.format(ric.proteine));
+					lblProteineX100.setText("Proteine % : "+decimal.format(ric.proteineX100));
+					lblGrassiX100.setText("Grassi % : "+decimal.format(ric.grassiX100));
+					lblLegante.setText("Indice legante : "+decimal.format(ric.indiceLegante));
+					lblDigeribilita.setText("Digeribilità : "+decimal.format(ric.digeribilita));
+					ric.note=txtB.getText();
+				}
 			}
 		});
 		
